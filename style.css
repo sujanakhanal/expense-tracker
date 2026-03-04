@@ -1,0 +1,126 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  font-family: "Geist";
+}
+body {
+  background-color: white;
+}
+.navbar {
+  height: 8.8rem;
+  padding: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#expense-tracker {
+  font-size: 3rem;
+  color: rgb(88, 88, 251);
+}
+#manage-finance {
+  font-size: 1.4rem;
+  color: rgb(99, 98, 98);
+}
+.right-part {
+  background-color: rgb(249, 245, 245);
+  height: 4rem;
+  width: 4rem;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+}
+
+.right-part i {
+  height: 2.4rem;
+  width: 2.4rem;
+  font-size: 2rem;
+}
+
+/* main */
+
+main {
+  padding: 32px 16px;
+}
+.first-section {
+  height: 14.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+}
+
+.total-balance {
+  border: 1px solid rgb(231, 231, 231);
+  border-radius: 2rem;
+  padding: 2.4rem;
+}
+.balance-wallet {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 1.6rem;
+
+  font-size: 1.4rem;
+}
+
+.balance-wallet span {
+  font-size: 1.4rem;
+  color: rgb(94, 93, 93);
+}
+#balance-amount {
+  font-size: 3rem;
+  color: rgb(94, 94, 227);
+}
+
+.total-income {
+  border: 1px solid rgb(231, 231, 231);
+  border-radius: 2rem;
+  padding: 2.4rem;
+  margin: 0, 0, 1.6rem;
+}
+.income-wallet {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 1.6rem;
+  font-size: 1.4rem;
+}
+
+.income-wallet span {
+  font-size: 1.4rem;
+  color: rgb(94, 93, 93);
+}
+
+#income-amount {
+  color: rgb(17, 175, 17);
+  font-size: 3rem;
+}
+
+.total-expense {
+  border: 1px solid rgb(231, 231, 231);
+  border-radius: 2rem;
+  padding: 2.4rem;
+  margin: 0, 0, 1.6rem;
+}
+.expense-wallet {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 1.6rem;
+  font-size: 1.4rem;
+}
+
+.expense-wallet span {
+  font-size: 1.4rem;
+  color: rgb(94, 93, 93);
+}
+
+#expense-amount {
+  color: rgb(195, 6, 6);
+  font-size: 3rem;
+}
