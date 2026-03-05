@@ -28,7 +28,7 @@ body {
   font-size: 1.4rem;
   color: rgb(99, 98, 98);
 }
-.right-part {
+.navright-part {
   background-color: rgb(249, 245, 245);
   height: 4rem;
   width: 4rem;
@@ -36,7 +36,7 @@ body {
   padding: 0.8rem;
 }
 
-.right-part i {
+.navright-part i {
   height: 2.4rem;
   width: 2.4rem;
   font-size: 2rem;
@@ -71,6 +71,7 @@ main {
 
 .balance-wallet span {
   font-size: 1.4rem;
+  font-weight: 500;
   color: rgb(94, 93, 93);
 }
 .wallet-icon {
@@ -114,6 +115,7 @@ main {
 .income-wallet span {
   font-size: 1.4rem;
   color: rgb(94, 93, 93);
+  font-weight: 500;
 }
 
 #income-amount {
@@ -146,9 +148,135 @@ main {
 .expense-wallet span {
   font-size: 1.4rem;
   color: rgb(94, 93, 93);
+  font-weight: 500;
 }
 
 #expense-amount {
   color: rgb(195, 6, 6);
   font-size: 3rem;
+}
+
+/* second-section */
+.second-section {
+  margin: 3.2rem 0 0;
+}
+
+.left-part {
+  background-color: #ffffff;
+  border: 1px solid rgb(231, 231, 231);
+  padding: 2.4rem;
+}
+.left-part h2 {
+  font-size: 2rem;
+  margin: 0 0 2.4rem;
+  color: rgb(22, 22, 22);
+}
+.buttons {
+  display: flex;
+  gap: 2rem;
+  margin: 0 0 1.6rem;
+}
+
+#income-btn {
+  background-color: rgb(210, 208, 208);
+  padding: 0.8rem 0.12rem;
+  font-size: 1.6rem;
+  color: rgb(68, 67, 67);
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  width: 10rem;
+  font-weight: 500;
+}
+
+#expense-btn {
+  background-color: rgb(255, 77, 77);
+  padding: 0.8rem 0.12rem;
+  font-size: 1.6rem;
+  color: rgb(68, 67, 67);
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  width: 10rem;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.amount {
+  margin: 0 0 1.6rem;
+}
+
+.amount p {
+  font-size: 1.4rem;
+  margin: 0 0 0.8rem;
+  color: rgb(42, 41, 41);
+  font-weight: 500;
+}
+.amount input {
+  padding: 0.8rem 1.6rem;
+  background-color: #ffffff;
+  border: 1.5px solid rgb(201, 199, 199);
+  border-radius: 0.8rem;
+}
+
+.category {
+  margin: 0 0 1.6rem;
+}
+
+.category p {
+  font-size: 1.4rem;
+  margin: 0 0 0.8rem;
+  color: rgb(42, 41, 41);
+  font-weight: 500;
+}
+.category input {
+  padding: 0.8rem 1.6rem;
+  background-color: #ffffff;
+  border: 1.5px solid rgb(201, 199, 199);
+  border-radius: 0.8rem;
+}
+
+.description {
+  margin: 0 0 1.6rem;
+}
+
+.description p {
+  font-size: 1.4rem;
+  margin: 0 0 0.8rem;
+  color: rgb(42, 41, 41);
+  font-weight: 500;
+}
+.description input {
+  padding: 0.8rem 1.6rem;
+  background-color: #ffffff;
+  border: 1.5px solid rgb(201, 199, 199);
+  border-radius: 0.8rem;
+}
+
+.date {
+  margin: 0 0 1.6rem;
+}
+
+.date p {
+  font-size: 1.4rem;
+  margin: 0 0 0.8rem;
+  color: rgb(42, 41, 41);
+  font-weight: 500;
+}
+.date input {
+  padding: 0.8rem 1.6rem;
+  background-color: #ffffff;
+  border: 1.5px solid rgb(201, 199, 199);
+  border-radius: 0.8rem;
+}
+
+.add-btn {
+  margin: 0 0 1.6rem;
+}
+.add-btn button {
+  background-color: rgb(244, 43, 43);
+  border-radius: 0.8rem;
+  width: 200px;
+  height: 35px;
+  border: 1px solid transparent;
+  color: white;
+  font-weight: 600;
 }

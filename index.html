@@ -23,11 +23,11 @@
   <body>
     <header>
       <div class="navbar">
-        <div class="left-part">
+        <div class="navleft-part">
           <p id="expense-tracker">Expense Tracker</p>
           <p id="manage-finance">Manage your finance with ease</p>
         </div>
-        <div class="right-part">
+        <div class="navright-part">
           <i class="fa-regular fa-moon"></i>
         </div>
       </div>
@@ -64,6 +64,35 @@
           </div>
           <p id="expense-amount">$0.00</p>
         </div>
+      </section>
+      <section class="second-section">
+        <div class="left-part">
+          <h2>Add Transaction</h2>
+          <div class="buttons">
+            <button id="income-btn">Income</button>
+            <button id="expense-btn">Expense</button>
+          </div>
+          <div class="amount">
+            <p>Amount</p>
+            <input type="text" placeholder="0.00" />
+          </div>
+          <div class="category">
+            <p>Category</p>
+            <input type="text" placeholder="Food" />
+          </div>
+          <div class="description">
+            <p>Description</p>
+            <input type="text" placeholder="Enter Description..." />
+          </div>
+          <div class="date">
+            <p>Date</p>
+            <input type="text" placeholder="03/05/2026" />
+          </div>
+          <div class="add-btn">
+            <button>+ Add</button>
+          </div>
+        </div>
+        <div class="right-part"></div>
       </section>
     </main>
     <script src="script.js"></script>
