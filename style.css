@@ -45,7 +45,8 @@ body {
 /* main */
 
 main {
-  padding: 32px 16px;
+  padding: 3.2rem 1.6rem;
+  background-color: whitesmoke;
 }
 .first-section {
   height: 14.5rem;
@@ -72,6 +73,17 @@ main {
   font-size: 1.4rem;
   color: rgb(94, 93, 93);
 }
+.wallet-icon {
+  border-radius: 0.5rem;
+  background-color: rgb(138, 138, 248);
+  height: 4.4rem;
+  width: 4.4rem;
+  font-size: medium;
+  padding: 1.2rem;
+}
+.wallet-icon i {
+  font-size: 1.8rem;
+}
 #balance-amount {
   font-size: 3rem;
   color: rgb(94, 94, 227);
@@ -82,6 +94,14 @@ main {
   border-radius: 2rem;
   padding: 2.4rem;
   margin: 0, 0, 1.6rem;
+}
+.right-arrow {
+  border-radius: 0.5rem;
+  background-color: rgb(61, 202, 61);
+  height: 4.4rem;
+  width: 4.4rem;
+  font-size: medium;
+  padding: 1.2rem;
 }
 .income-wallet {
   display: flex;
@@ -106,6 +126,14 @@ main {
   border-radius: 2rem;
   padding: 2.4rem;
   margin: 0, 0, 1.6rem;
+}
+.left-arrow {
+  border-radius: 0.5rem;
+  background-color: rgb(248, 65, 65);
+  height: 4.4rem;
+  width: 4.4rem;
+  font-size: medium;
+  padding: 1.2rem;
 }
 .expense-wallet {
   display: flex;
