@@ -159,12 +159,16 @@ main {
 /* second-section */
 .second-section {
   margin: 3.2rem 0 0;
+  display: flex;
+  gap: 3rem;
+  width: 100%;
 }
 
 .left-part {
   background-color: #ffffff;
   border: 1px solid rgb(231, 231, 231);
   padding: 2.4rem;
+  width: 30%;
 }
 .left-part h2 {
   font-size: 2rem;
@@ -215,6 +219,7 @@ main {
   background-color: #ffffff;
   border: 1.5px solid rgb(201, 199, 199);
   border-radius: 0.8rem;
+  width: 95%;
 }
 
 .category {
@@ -232,6 +237,7 @@ main {
   background-color: #ffffff;
   border: 1.5px solid rgb(201, 199, 199);
   border-radius: 0.8rem;
+  width: 95%;
 }
 
 .description {
@@ -249,6 +255,7 @@ main {
   background-color: #ffffff;
   border: 1.5px solid rgb(201, 199, 199);
   border-radius: 0.8rem;
+  width: 95%;
 }
 
 .date {
@@ -266,6 +273,7 @@ main {
   background-color: #ffffff;
   border: 1.5px solid rgb(201, 199, 199);
   border-radius: 0.8rem;
+  width: 95%;
 }
 
 .add-btn {
@@ -279,4 +287,20 @@ main {
   border: 1px solid transparent;
   color: white;
   font-weight: 600;
+  width: 95%;
+}
+
+.right-part {
+  width: 70%;
+}
+
+.first-right-section {
+  padding: 2.4rem;
+  background-color: #ffffff;
+}
+
+.barchart h2 {
+  margin: 0 0 1.6rem;
+  font-size: 2.4rem;
+  color: rgb(32, 32, 32);
 }
