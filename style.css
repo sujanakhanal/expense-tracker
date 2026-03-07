@@ -59,6 +59,7 @@ main {
   border: 1px solid rgb(231, 231, 231);
   border-radius: 2rem;
   padding: 2.4rem;
+  background-color: #ffffff;
 }
 .balance-wallet {
   display: flex;
@@ -95,6 +96,7 @@ main {
   border-radius: 2rem;
   padding: 2.4rem;
   margin: 0, 0, 1.6rem;
+  background-color: #ffffff;
 }
 .right-arrow {
   border-radius: 0.5rem;
@@ -128,6 +130,7 @@ main {
   border-radius: 2rem;
   padding: 2.4rem;
   margin: 0, 0, 1.6rem;
+  background-color: #ffffff;
 }
 .left-arrow {
   border-radius: 0.5rem;
@@ -166,9 +169,11 @@ main {
 
 .left-part {
   background-color: #ffffff;
-  border: 1px solid rgb(231, 231, 231);
+  border: 1px solid rgb(232, 230, 230);
+  border-radius: 1rem;
   padding: 2.4rem;
   width: 30%;
+  height: fit-content;
 }
 .left-part h2 {
   font-size: 2rem;
@@ -219,6 +224,7 @@ main {
   background-color: #ffffff;
   border: 1.5px solid rgb(201, 199, 199);
   border-radius: 0.8rem;
+
   width: 95%;
 }
 
@@ -291,16 +297,95 @@ main {
 }
 
 .right-part {
-  width: 70%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 
 .first-right-section {
   padding: 2.4rem;
   background-color: #ffffff;
+  border: 1px solid rgb(232, 230, 230);
+  border-radius: 1rem;
 }
 
 .barchart h2 {
   margin: 0 0 1.6rem;
   font-size: 2.4rem;
   color: rgb(32, 32, 32);
+}
+
+.second-right-section {
+  background-color: #ffffff;
+  border: 1px solid rgb(232, 230, 230);
+  border-radius: 1rem;
+
+  padding: 2.4rem;
+}
+
+.filters {
+  width: 80%;
+}
+.filters h3 {
+  margin: 0 0 1.6rem;
+  font-size: 1.8rem;
+  color: rgb(34, 33, 33);
+}
+
+.category p {
+  font-weight: 500;
+}
+
+.dates {
+  display: flex;
+  gap: 2rem;
+  margin: 0 0 1.6rem;
+}
+.start-date p {
+  margin: 0 0 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.start-date input {
+  padding: 0.8rem 1.6rem;
+  background-color: #ffffff;
+  border: 1.5px solid rgb(201, 199, 199);
+  border-radius: 0.8rem;
+}
+
+.end-date p {
+  margin: 0 0 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+.end-date input {
+  padding: 0.8rem 1.6rem;
+  background-color: #ffffff;
+  border: 1.5px solid rgb(201, 199, 199);
+  border-radius: 0.8rem;
+}
+
+.reset-btn button {
+  padding: 0.8rem 1.6rem;
+  font-size: 1.6rem;
+  background-color: #f5f5f5;
+  width: 95%;
+  border: 1.5px solid rgb(201, 199, 199);
+  border-radius: 1rem;
+}
+
+.third-right-section {
+  background-color: #ffffff;
+  border: 1px solid rgb(232, 230, 230);
+  border-radius: 1rem;
+  padding: 3.2rem;
+}
+
+.third-right-section p {
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
