@@ -1,3 +1,17 @@
+function getGridColor() {
+  return document.body.classList.contains("dark-mode")
+    ? "rgba(87, 86, 86, 0.88)"
+    : "rgba(131, 129, 129, 0.39)";
+}
+
+function getMonthsColor() {
+  return document.body.classList.contains("dark-mode") ? "#b0b1b6" : "#3a3838";
+}
+
+function getLegendColor() {
+  return document.body.classList.contains("dark-mode") ? "#e5e7eb" : "#374151";
+}
+
 const ctx = document.getElementById("spendingChart");
 
 const months = [
@@ -18,7 +32,7 @@ const months = [
 const incomeData = [0, 0, 0, 500, 0, 0, 0, 0, 0, 0, 0, 1000];
 const expenseData = [0, 0, 0, 2000, 0, 0, 0, 0, 0, 0, 0, 100];
 
-new Chart(ctx, {
+const chart = new Chart(ctx, {
   type: "bar",
 
   data: {
@@ -55,6 +69,7 @@ new Chart(ctx, {
       legend: {
         position: "bottom",
         labels: {
+          color: getLegendColor(),
           boxWidth: 12,
           boxHeight: 12,
           padding: 15,
@@ -75,16 +90,22 @@ new Chart(ctx, {
 
     scales: {
       x: {
+        ticks: {
+          color: getMonthsColor(),
+        },
         grid: {
-          color: "#e5e7eb",
+          color: getGridColor(),
           borderDash: [4, 4],
         },
       },
 
       y: {
         beginAtZero: true,
+        ticks: {
+          color: getMonthsColor(),
+        },
         grid: {
-          color: "#e5e7eb",
+          color: getGridColor(),
           borderDash: [4, 4],
         },
       },

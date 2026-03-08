@@ -10,7 +10,11 @@ html {
   font-family: "Geist";
 }
 body {
-  background-color: white;
+  background: white;
+  color: black;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 .navbar {
   height: 8.8rem;
@@ -41,9 +45,173 @@ body {
   width: 2.4rem;
   font-size: 2rem;
 }
+/* dark-mode-feature */
 
-/* main */
+body.dark-mode {
+  background: rgb(2, 6, 23);
+  color: #f9fafb;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
 
+body.dark-mode .navbar {
+  background-color: #0f2e43;
+}
+body.dark-mode .navbar #expense-tracker {
+  background: linear-gradient(to right, rgb(140, 140, 249), cyan);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.dark-mode #manage-finance {
+  color: rgb(199, 197, 197);
+}
+
+body.dark-mode .navright-part {
+  background-color: #355267;
+}
+
+body.dark-mode main {
+  background-color: #001328;
+}
+
+body.dark-mode .total-balance {
+  background-color: #0f2e43;
+  border: transparent;
+}
+
+body.dark-mode .balance-wallet span {
+  color: rgb(203, 203, 203);
+}
+
+body.dark-mode #balance-amount {
+  color: rgb(84, 146, 239);
+}
+
+body.dark-mode .total-income {
+  background-color: #0f2e43;
+  border: transparent;
+}
+
+body.dark-mode .income-wallet span {
+  color: rgb(203, 203, 203);
+}
+body.dark-mode #income-amount {
+  color: rgb(90, 199, 85);
+}
+
+body.dark-mode .total-expense {
+  background-color: #0f2e43;
+  border: transparent;
+}
+
+body.dark-mode .expense-wallet span {
+  color: rgb(203, 203, 203);
+}
+body.dark-mode #expense-amount {
+  color: rgb(246, 99, 99);
+}
+body.dark-mode .left-part {
+  background-color: #0f2e43;
+  border: transparent;
+}
+
+body.dark-mode .left-part h2 {
+  color: rgb(234, 233, 233);
+}
+body.dark-mode #income-btn {
+  background-color: #2b4a5f;
+  color: rgb(190, 190, 190);
+}
+
+body.dark-mode #expense-btn {
+  background-color: rgb(254, 43, 43);
+}
+
+body.dark-mode .amount p {
+  color: rgb(190, 190, 190);
+}
+
+body.dark-mode .amount input {
+  background-color: #2b4a5f;
+  border: transparent;
+}
+
+body.dark-mode .category p {
+  color: rgb(190, 190, 190);
+}
+
+body.dark-mode .category input {
+  background-color: #2b4a5f;
+  border: transparent;
+}
+
+body.dark-mode .description p {
+  color: rgb(190, 190, 190);
+}
+
+body.dark-mode .description input {
+  background-color: #2b4a5f;
+  border: transparent;
+}
+
+body.dark-mode .date p {
+  color: rgb(190, 190, 190);
+}
+
+body.dark-mode .date input {
+  background-color: #2b4a5f;
+  border: transparent;
+}
+
+body.dark-mode .first-right-section {
+  background-color: #0f2e43;
+  border: transparent;
+}
+body.dark-mode .barchart h2 {
+  color: rgb(234, 233, 233);
+}
+
+body.dark-mode .second-right-section {
+  background-color: #0f2e43;
+  border: transparent;
+}
+
+body.dark-mode .filters h3 {
+  color: rgb(234, 233, 233);
+}
+
+body.dark-mode .start-date p {
+  color: rgb(217, 214, 214);
+}
+
+body.dark-mode .start-date input {
+  background-color: #2b4a5f;
+  border: transparent;
+}
+
+body.dark-mode .end-date p {
+  color: rgb(217, 214, 214);
+}
+body.dark-mode .end-date input {
+  background-color: #2b4a5f;
+  border: transparent;
+}
+
+body.dark-mode .reset-btn button {
+  background-color: #2b4a5f;
+  border: transparent;
+  color: rgb(239, 238, 238);
+}
+
+body.dark-mode .third-right-section {
+  background-color: #0f2e43;
+  border: transparent;
+  color: rgb(239, 238, 238);
+}
+/* main-section */
 main {
   padding: 3.2rem 1.6rem;
   background-color: whitesmoke;
@@ -182,8 +350,9 @@ main {
 }
 .buttons {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   margin: 0 0 1.6rem;
+  width: 100%;
 }
 
 #income-btn {
@@ -193,7 +362,7 @@ main {
   color: rgb(68, 67, 67);
   border: 1px solid transparent;
   border-radius: 0.5rem;
-  width: 10rem;
+  width: 50%;
   font-weight: 500;
 }
 
@@ -204,7 +373,7 @@ main {
   color: rgb(68, 67, 67);
   border: 1px solid transparent;
   border-radius: 0.5rem;
-  width: 10rem;
+  width: 50%;
   color: #ffffff;
   font-weight: 500;
 }
