@@ -44,6 +44,7 @@ body {
   height: 2.4rem;
   width: 2.4rem;
   font-size: 2rem;
+  cursor: pointer;
 }
 /* dark-mode-feature */
 
@@ -228,6 +229,12 @@ main {
   border-radius: 2rem;
   padding: 2.4rem;
   background-color: #ffffff;
+  
+}
+
+.total-balance:hover{
+  box-shadow: 0 4px 12px rgba(32, 33, 36, 0.35);
+  transition: 0.2s ease-in;
 }
 .balance-wallet {
   display: flex;
@@ -237,6 +244,7 @@ main {
 
   font-size: 1.4rem;
 }
+
 
 .balance-wallet span {
   font-size: 1.4rem;
@@ -265,6 +273,10 @@ main {
   padding: 2.4rem;
   margin: 0, 0, 1.6rem;
   background-color: #ffffff;
+}
+.total-income:hover{
+  box-shadow: 0 4px 12px rgba(32, 33, 36, 0.35);
+  transition: 0.2s ease-in;
 }
 .right-arrow {
   border-radius: 0.5rem;
@@ -299,6 +311,11 @@ main {
   padding: 2.4rem;
   margin: 0, 0, 1.6rem;
   background-color: #ffffff;
+}
+
+.total-expense:hover{
+  box-shadow: 0 4px 12px rgba(32, 33, 36, 0.35);
+  transition: 0.2s ease-in;
 }
 .left-arrow {
   border-radius: 0.5rem;
