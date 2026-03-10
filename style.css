@@ -22,6 +22,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: white;
 }
 
 #expense-tracker {
@@ -229,10 +230,9 @@ main {
   border-radius: 2rem;
   padding: 2.4rem;
   background-color: #ffffff;
-  
 }
 
-.total-balance:hover{
+.total-balance:hover {
   box-shadow: 0 4px 12px rgba(32, 33, 36, 0.35);
   transition: 0.2s ease-in;
 }
@@ -244,7 +244,6 @@ main {
 
   font-size: 1.4rem;
 }
-
 
 .balance-wallet span {
   font-size: 1.4rem;
@@ -274,7 +273,7 @@ main {
   margin: 0, 0, 1.6rem;
   background-color: #ffffff;
 }
-.total-income:hover{
+.total-income:hover {
   box-shadow: 0 4px 12px rgba(32, 33, 36, 0.35);
   transition: 0.2s ease-in;
 }
@@ -313,7 +312,7 @@ main {
   background-color: #ffffff;
 }
 
-.total-expense:hover{
+.total-expense:hover {
   box-shadow: 0 4px 12px rgba(32, 33, 36, 0.35);
   transition: 0.2s ease-in;
 }
@@ -353,6 +352,8 @@ main {
 }
 
 .left-part {
+  position: sticky;
+  top: 1.5rem;
   background-color: #ffffff;
   border: 1px solid rgb(232, 230, 230);
   border-radius: 1rem;
