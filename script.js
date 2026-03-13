@@ -1,4 +1,16 @@
 const darkToggle = document.querySelector(".navright-part i");
+const amountInput = document.getElementById("amount-input");
+const categoryInput = document.getElementById("category-input");
+const descriptionInput = document.getElementById("description-input");
+const dateInput = document.getElementById("date-input");
+const addBtn = document.getElementById("add-transaction-btn");
+
+let transactions = [];
+
+const savedData = localStorage.getItem("transactions");
+if (savedData) {
+  transactions = JSON.parse(savedData);
+}
 
 darkToggle.addEventListener("click", (e) => {
   e.preventDefault();
@@ -25,17 +37,6 @@ if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark-mode");
   darkToggle.classList.remove("fa-moon");
   darkToggle.classList.add("fa-sun");
-}
-
-const amountInput = document.getElementById("amount-input");
-const categoryInput = document.getElementById("category-input");
-const descriptionInput = document.getElementById("description-input");
-const dateInput = document.getElementById("date-input");
-const addBtn = document.getElementById("add-transaction-btn");
-let transactions = [];
-const savedData = localStorage.getItem("transactions");
-if (savedData) {
-  transactions = JSON.parse(savedData);
 }
 
 addBtn.addEventListener("click", () => {
