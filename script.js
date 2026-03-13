@@ -1,9 +1,37 @@
 const darkToggle = document.querySelector(".navright-part i");
+
 const amountInput = document.getElementById("amount-input");
 const categoryInput = document.getElementById("category-input");
 const descriptionInput = document.getElementById("description-input");
 const dateInput = document.getElementById("date-input");
 const addBtn = document.getElementById("add-transaction-btn");
+
+const incomeBtn = document.getElementById("income-btn");
+const expenseBtn = document.getElementById("expense-btn");
+
+let transactionType = "expense";
+
+incomeBtn.addEventListener("click", () => {
+  transactionType = "income";
+
+  incomeBtn.style.background = "#10b981";
+  incomeBtn.style.color = "white";
+
+  expenseBtn.style.background = "#d1d5db";
+  expenseBtn.style.color = "black";
+});
+
+expenseBtn.addEventListener("click", () => {
+  transactionType = "expense";
+
+  expenseBtn.style.background = "#ef4444";
+  expenseBtn.style.color = "white";
+
+  incomeBtn.style.background = "#d1d5db";
+  incomeBtn.style.color = "black";
+});
+
+const transactionList = document.getElementById("transaction-list");
 
 let transactions = [];
 
@@ -45,18 +73,60 @@ addBtn.addEventListener("click", () => {
   const description = descriptionInput.value;
   const date = dateInput.value;
 
+  if (!amount || !category || !date) {
+    alert("Please fill all fields");
+    return;
+  }
+
   const transaction = {
-    amount: amount,
+    type: transactionType,
+    amount: Number(amount),
     category: category,
     description: description,
     date: date,
   };
+
   transactions.push(transaction);
+
   localStorage.setItem("transactions", JSON.stringify(transactions));
-  console.log(transactions);
+
+  renderTransactions();
 
   amountInput.value = "";
   categoryInput.value = "";
   descriptionInput.value = "";
   dateInput.value = "";
 });
+
+function renderTransactions() {
+  transactionList.innerHTML = "";
+
+  const message = document.querySelector(".transaction-history");
+
+  if (transactions.length === 0) {
+    message.style.display = "block";
+    return;
+  } else {
+    message.style.display = "none";
+  }
+
+  transactions.forEach((transaction) => {
+    const item = document.createElement("div");
+    item.classList.add("transaction-item");
+
+    item.innerHTML = `
+      <div>
+        <p>${transaction.category}</p>
+        <small>${transaction.description} - ${transaction.date}</small>
+      </div>
+
+      <span class="${transaction.type}">
+        ${transaction.type === "income" ? "+" : "-"}$${transaction.amount}
+      </span>
+    `;
+
+    transactionList.appendChild(item);
+  });
+}
+
+renderTransactions();

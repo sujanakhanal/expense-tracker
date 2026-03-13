@@ -581,3 +581,25 @@ main {
   justify-content: center;
   align-items: center;
 }
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.transaction-item small {
+  color: gray;
+}
+
+.transaction-item span.income {
+  color: #10b981;
+  font-weight: bold;
+}
+
+.transaction-item span.expense {
+  color: #ef4444;
+  font-weight: bold;
+}
