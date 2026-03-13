@@ -23,6 +23,11 @@ body {
   align-items: center;
   justify-content: space-between;
   background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 #expense-tracker {
@@ -215,7 +220,7 @@ body.dark-mode .third-right-section {
 }
 /* main-section */
 main {
-  padding: 3.2rem 1.6rem;
+  padding: 12rem 1.6rem 3.2rem 1.6rem;
   background-color: whitesmoke;
 }
 .first-section {
@@ -353,7 +358,7 @@ main {
 
 .left-part {
   position: sticky;
-  top: 1.5rem;
+  top: 10rem;
   background-color: #ffffff;
   border: 1px solid rgb(232, 230, 230);
   border-radius: 1rem;
