@@ -90,7 +90,7 @@ addBtn.addEventListener("click", () => {
 
   localStorage.setItem("transactions", JSON.stringify(transactions));
 
-  renderTransactions();
+
 
   amountInput.value = "";
   categoryInput.value = "";
@@ -98,35 +98,4 @@ addBtn.addEventListener("click", () => {
   dateInput.value = "";
 });
 
-function renderTransactions() {
-  transactionList.innerHTML = "";
 
-  const message = document.querySelector(".transaction-history");
-
-  if (transactions.length === 0) {
-    message.style.display = "block";
-    return;
-  } else {
-    message.style.display = "none";
-  }
-
-  transactions.forEach((transaction) => {
-    const item = document.createElement("div");
-    item.classList.add("transaction-item");
-
-    item.innerHTML = `
-      <div>
-        <p>${transaction.category}</p>
-        <small>${transaction.description} - ${transaction.date}</small>
-      </div>
-
-      <span class="${transaction.type}">
-        ${transaction.type === "income" ? "+" : "-"}$${transaction.amount}
-      </span>
-    `;
-
-    transactionList.appendChild(item);
-  });
-}
-
-renderTransactions();
