@@ -9,26 +9,110 @@ const addBtn = document.getElementById("add-transaction-btn");
 const incomeBtn = document.getElementById("income-btn");
 const expenseBtn = document.getElementById("expense-btn");
 
-let transactionType = "expense";
+const selectedCategory = document.getElementById("selected-category");
+const optionsContainer = document.getElementById("category-options");
+const customSelect = document.getElementById("category-select");
+
+let selectedCategoryValue = "";
+
+const incomeCategories = [
+  "Salary",
+  "Bonus",
+  "Freelance",
+  "Investment",
+  "Other",
+];
+const expenseCategories = [
+  "Food",
+  "Transport",
+  "Shopping",
+  "Entertainment",
+  "Utilities",
+  "HealthCare",
+  "Other",
+];
+
+let transactionType = "";
+
+function updateButtonStyles() {
+  if (transactionType === "income") {
+    incomeBtn.style.background = "#31c23d";
+    incomeBtn.style.color = "white";
+    addBtn.style.background = "#31c23d";
+    addBtn.style.color = "white";
+
+    expenseBtn.style.background = "#d1d5db";
+    expenseBtn.style.color = "black";
+  } else {
+    expenseBtn.style.background = "#f53f3f";
+    expenseBtn.style.color = "white";
+    addBtn.style.background = "#f53f3f";
+    addBtn.style.color = "white";
+
+    incomeBtn.style.background = "#d1d5db";
+    incomeBtn.style.color = "black";
+  }
+}
+
+function updateCategoryOptions(type) {
+  optionsContainer.innerHTML = "";
+
+  const categories = type === "income" ? incomeCategories : expenseCategories;
+
+  categories.forEach((category) => {
+    const option = document.createElement("div");
+    option.classList.add("option");
+    option.textContent = category;
+
+    option.addEventListener("click", () => {
+      selectedCategory.textContent = category;
+      selectedCategoryValue = category;
+      customSelect.classList.remove("active");
+    });
+
+    optionsContainer.appendChild(option);
+  });
+
+  selectedCategory.textContent = categories[0];
+  selectedCategoryValue = categories[0];
+}
+
+selectedCategory.addEventListener("click", () => {
+  customSelect.classList.toggle("active");
+});
+
+document.addEventListener("click", (e) => {
+  if (!customSelect.contains(e.target)) {
+    customSelect.classList.remove("active");
+  }
+});
 
 incomeBtn.addEventListener("click", () => {
   transactionType = "income";
+  localStorage.setItem("transactionType", "income");
 
-  incomeBtn.style.background = "#10b981";
+  incomeBtn.style.background = "#31c23d";
   incomeBtn.style.color = "white";
+  addBtn.style.background = "#31c23d";
+  addBtn.style.color = "white";
 
   expenseBtn.style.background = "#d1d5db";
   expenseBtn.style.color = "black";
+  updateCategoryOptions("income");
 });
 
 expenseBtn.addEventListener("click", () => {
   transactionType = "expense";
+  localStorage.setItem("transactionType", "expense");
 
-  expenseBtn.style.background = "#ef4444";
+  expenseBtn.style.background = "#f53f3f";
   expenseBtn.style.color = "white";
+  addBtn.style.background = "#f53f3f";
+  addBtn.style.color = "white";
 
   incomeBtn.style.background = "#d1d5db";
   incomeBtn.style.color = "black";
+  updateCategoryOptions("expense");
 });
 
 const transactionList = document.getElementById("transaction-list");
@@ -69,7 +153,7 @@ if (localStorage.getItem("theme") === "dark") {
 
 addBtn.addEventListener("click", () => {
   const amount = amountInput.value;
-  const category = categoryInput.value;
+  const category = selectedCategoryValue;
   const description = descriptionInput.value;
   const date = dateInput.value;
 
@@ -90,12 +174,17 @@ addBtn.addEventListener("click", () => {
 
   localStorage.setItem("transactions", JSON.stringify(transactions));
 
-
-
   amountInput.value = "";
   categoryInput.value = "";
   descriptionInput.value = "";
   dateInput.value = "";
 });
 
-
+const savedType = localStorage.getItem("transactionType");
+if (savedType) {
+  transactionType = savedType;
+} else {
+  transactionType = "income";
+}
+updateCategoryOptions(transactionType);
+updateButtonStyles();

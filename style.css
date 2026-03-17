@@ -52,6 +52,7 @@ body {
   font-size: 2rem;
   cursor: pointer;
 }
+
 /* dark-mode-feature */
 
 body.dark-mode {
@@ -387,10 +388,11 @@ main {
   border-radius: 0.5rem;
   width: 50%;
   font-weight: 500;
+  cursor: pointer;
 }
 
 #expense-btn {
-  background-color: rgb(255, 77, 77);
+  background-color: #f53f3f;
   padding: 0.8rem 0.12rem;
   font-size: 1.6rem;
   color: rgb(68, 67, 67);
@@ -399,6 +401,7 @@ main {
   width: 50%;
   color: #ffffff;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .amount {
@@ -406,18 +409,54 @@ main {
 }
 
 .amount p {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin: 0 0 0.8rem;
   color: rgb(42, 41, 41);
-  font-weight: 500;
+  font-weight: 600;
 }
 .amount input {
-  padding: 0.8rem 1.6rem;
+  width: 100%;
+  padding: 10px 35px 12px 14px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  color: #111827;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+.amount input:hover {
+  border-color: #cbd5e1;
+  background-color: #f3f4f6;
+}
+.amount input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
   background-color: #ffffff;
-  border: 1.5px solid rgb(201, 199, 199);
-  border-radius: 0.8rem;
+}
+.amount {
+  position: relative;
+}
 
-  width: 95%;
+body.dark-mode .amount input {
+  background-color: #1f2937;
+  border: 1px solid #374151;
+  color: #f9fafb;
+}
+
+body.dark-mode .amount input:hover {
+  background-color: #273549;
+}
+
+body.dark-mode .amount input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+body.dark-mode .amount::after {
+  color: #9ca3af;
 }
 
 .category {
@@ -425,17 +464,106 @@ main {
 }
 
 .category p {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin: 0 0 0.8rem;
   color: rgb(42, 41, 41);
-  font-weight: 500;
+  font-weight: 600;
 }
-.category input {
-  padding: 0.8rem 1.6rem;
-  background-color: #ffffff;
-  border: 1.5px solid rgb(201, 199, 199);
-  border-radius: 0.8rem;
-  width: 95%;
+
+.category::after {
+  content: "▾";
+  position: absolute;
+  right: 30px;
+  top: 48%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #6b7280;
+  pointer-events: none;
+}
+
+.custom-select {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+}
+
+.selected {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.selected:hover {
+  background-color: #f3f4f6;
+}
+
+.custom-select.active .selected {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.options {
+  position: absolute;
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  margin-top: 6px;
+  display: none;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.custom-select.active .options {
+  display: block;
+}
+
+.option {
+  padding: 12px 16px;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.option:hover {
+  background-color: #3b82f6;
+  color: white;
+}
+
+body.dark-mode .selected {
+  background-color: #1f2937;
+  border: 1px solid #374151;
+  color: #f9fafb;
+}
+
+body.dark-mode .options {
+  background-color: #1f2937;
+  border: 1px solid #374151;
+}
+
+body.dark-mode .option:hover {
+  background-color: #2563eb;
+}
+
+body.dark-mode #category-input {
+  background-color: #1f2937;
+  border: 1px solid #374151;
+  color: #f9fafb;
+}
+
+body.dark-mode #category-input:hover {
+  background-color: #273549;
+}
+
+body.dark-mode #category-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.35);
+}
+
+body.dark-mode .category::after {
+  color: #9ca3af;
 }
 
 .description {
@@ -443,17 +571,55 @@ main {
 }
 
 .description p {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin: 0 0 0.8rem;
   color: rgb(42, 41, 41);
-  font-weight: 500;
+  font-weight: 600;
 }
+
 .description input {
-  padding: 0.8rem 1.6rem;
+  width: 100%;
+  padding: 10px 35px 12px 14px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  color: #111827;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+.description input:hover {
+  border-color: #cbd5e1;
+  background-color: #f3f4f6;
+}
+.description input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
   background-color: #ffffff;
-  border: 1.5px solid rgb(201, 199, 199);
-  border-radius: 0.8rem;
-  width: 95%;
+}
+.description {
+  position: relative;
+}
+
+body.dark-mode .description input {
+  background-color: #1f2937;
+  border: 1px solid #374151;
+  color: #f9fafb;
+}
+
+body.dark-mode .description input:hover {
+  background-color: #273549;
+}
+
+body.dark-mode .description input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+body.dark-mode .description::after {
+  color: #9ca3af;
 }
 
 .date {
@@ -461,31 +627,71 @@ main {
 }
 
 .date p {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin: 0 0 0.8rem;
   color: rgb(42, 41, 41);
-  font-weight: 500;
+  font-weight: 600;
 }
 .date input {
-  padding: 0.8rem 1.6rem;
+  width: 100%;
+  padding: 10px 35px 12px 14px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  color: #111827;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+.date input:hover {
+  border-color: #cbd5e1;
+  background-color: #f3f4f6;
+}
+.date input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
   background-color: #ffffff;
-  border: 1.5px solid rgb(201, 199, 199);
-  border-radius: 0.8rem;
-  width: 95%;
+}
+.date {
+  position: relative;
+}
+
+body.dark-mode .date input {
+  background-color: #1f2937;
+  border: 1px solid #374151;
+  color: #f9fafb;
+}
+
+body.dark-mode .date input:hover {
+  background-color: #273549;
+}
+
+body.dark-mode .date input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+body.dark-mode .date::after {
+  color: #9ca3af;
 }
 
 .add-btn {
   margin: 0 0 1.6rem;
 }
 .add-btn button {
-  background-color: rgb(244, 43, 43);
+  background-color: #f53f3f;
   border-radius: 0.8rem;
   width: 200px;
   height: 35px;
   border: 1px solid transparent;
   color: white;
   font-weight: 600;
-  width: 95%;
+  width: 100%;
+  padding: 10px 35px 12px 14px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .right-part {

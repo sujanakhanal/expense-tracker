@@ -76,10 +76,16 @@
             <p>Amount</p>
             <input id="amount-input" type="text" placeholder="0.00" />
           </div>
+
           <div class="category">
             <p>Category</p>
-            <input id="category-input" type="text" placeholder="Food" />
+
+            <div class="custom-select" id="category-select">
+              <div class="selected" id="selected-category">Select category</div>
+              <div class="options" id="category-options"></div>
+            </div>
           </div>
+
           <div class="description">
             <p>Description</p>
             <input
