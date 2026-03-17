@@ -188,3 +188,14 @@ if (savedType) {
 }
 updateCategoryOptions(transactionType);
 updateButtonStyles();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const datePicker = flatpickr("#date-input", {
+    dateFormat: "m/d/Y",
+    defaultDate: new Date(),
+  });
+
+  document.querySelector(".calendar-icon").addEventListener("click", () => {
+    datePicker.open();
+  });
+});

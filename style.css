@@ -809,3 +809,13 @@ body.dark-mode .date::after {
   color: #ef4444;
   font-weight: bold;
 }
+
+.calendar-icon {
+  position: absolute;
+  right: 12px;  
+  top: 68%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #6b7280;
+  pointer-events: none;    
+}

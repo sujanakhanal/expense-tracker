@@ -7,6 +7,10 @@
 
     <link
       rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
       integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
       crossorigin="anonymous"
@@ -96,7 +100,12 @@
           </div>
           <div class="date">
             <p>Date</p>
-            <input id="date-input" type="text" placeholder="03/05/2026" />
+            <input
+              id="date-input"
+              type="text"
+              placeholder="mm/dd/yyyy"
+            />
+            <span class="calendar-icon">📅</span>
           </div>
           <div class="add-btn">
             <button id="add-transaction-btn">+ Add</button>
@@ -143,5 +152,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
     <script src="chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   </body>
 </html>
