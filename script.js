@@ -174,6 +174,8 @@ addBtn.addEventListener("click", () => {
 
   localStorage.setItem("transactions", JSON.stringify(transactions));
 
+  updateBalance();
+
   amountInput.value = "";
   categoryInput.value = "";
   descriptionInput.value = "";
@@ -199,3 +201,27 @@ document.addEventListener("DOMContentLoaded", () => {
     datePicker.open();
   });
 });
+
+function updateBalance() {
+  let totalIncome = 0;
+  let totalExpense = 0;
+  transactions.forEach((t) => {
+    if (t.type === "income") {
+      totalIncome += t.amount;
+    } else {
+      totalExpense += t.amount;
+    }
+  });
+  const balance = totalIncome - totalExpense;
+
+  document.getElementById("income-amount").textContent =
+    "Rs " + totalIncome.toFixed(2);
+
+  document.getElementById("expense-amount").textContent =
+    "Rs " + totalExpense.toFixed(2);
+
+  document.getElementById("balance-amount").textContent =
+    "Rs " + balance.toFixed(2);
+}
+
+updateBalance();
