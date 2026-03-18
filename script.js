@@ -32,7 +32,7 @@ const expenseCategories = [
   "Other",
 ];
 
-let transactionType = "";
+let transactionType = "income";
 
 function updateButtonStyles() {
   if (transactionType === "income") {
@@ -205,13 +205,17 @@ document.addEventListener("DOMContentLoaded", () => {
 function updateBalance() {
   let totalIncome = 0;
   let totalExpense = 0;
+
   transactions.forEach((t) => {
     if (t.type === "income") {
-      totalIncome += t.amount;
-    } else {
-      totalExpense += t.amount;
+      totalIncome += Number(t.amount);
+    }
+
+    if (t.type === "expense") {
+      totalExpense += Number(t.amount);
     }
   });
+
   const balance = totalIncome - totalExpense;
 
   document.getElementById("income-amount").textContent =
