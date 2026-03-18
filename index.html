@@ -103,8 +103,10 @@
             <input id="date-input" type="text" placeholder="mm/dd/yyyy" />
             <span class="calendar-icon">📅</span>
           </div>
+
           <div class="add-btn">
             <button id="add-transaction-btn">+ Add</button>
+            <button id="cancel-edit-btn" style="display: none">Cancel</button>
           </div>
         </div>
         <div class="right-part">
@@ -136,10 +138,8 @@
               <button>Reset Filters</button>
             </div>
           </section>
+
           <section class="third-right-section">
-            <div class="transaction-history">
-              <p>No transaction yet. Add one to get started!</p>
-            </div>
             <div id="transaction-list"></div>
           </section>
         </div>

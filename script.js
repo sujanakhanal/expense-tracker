@@ -12,6 +12,23 @@ const expenseBtn = document.getElementById("expense-btn");
 const selectedCategory = document.getElementById("selected-category");
 const optionsContainer = document.getElementById("category-options");
 const customSelect = document.getElementById("category-select");
+const cancelBtn = document.getElementById("cancel-edit-btn");
+let editMode = false;
+let editId = null;
+
+const categoryIcons = {
+  Salary: "💼",
+  Bonus: "🎁",
+  Freelance: "💻",
+  Investment: "📈",
+  Food: "🍔",
+  Transport: "🚗",
+  Shopping: "🛍️",
+  Entertainment: "🎬",
+  Utilities: "💡",
+  HealthCare: "🏥",
+  Other: "📦",
+};
 
 let selectedCategoryValue = "";
 
@@ -124,6 +141,85 @@ if (savedData) {
   transactions = JSON.parse(savedData);
 }
 
+function renderTransactions() {
+  transactionList.innerHTML = "";
+
+  if (transactions.length === 0) {
+    transactionList.innerHTML =
+      "<p class='no-transaction'>No transaction yet. Add one to get started!</p>";
+    return;
+  }
+
+  transactionList.innerHTML =
+    "<h1 class='recent-transaction' > Recent Transaction </h1>";
+
+  transactions.forEach((t) => {
+    const item = document.createElement("div");
+    item.classList.add("transaction-item");
+
+    const icon = categoryIcons[t.category] || "📦";
+    const sign = t.type === "income" ? "+" : "-";
+    const amountColor = t.type === "income" ? "green" : "red";
+
+    item.innerHTML = `
+      <div class="left">
+        <div class="icon">${icon}</div>
+        <div class="info">
+          <h4>${t.category}</h4>
+          <p>${t.date}</p>
+        </div>
+      </div>
+
+      <div class="right">
+        <span style="color:${amountColor}">
+          ${sign} Rs ${t.amount.toFixed(2)}
+        </span>
+
+        <span class="action-icons">
+
+          <i class="fa-solid fa-pen edit-btn" data-id="${t.id}"></i>
+          <i class="fa-solid fa-trash delete-btn" data-id="${t.id}"></i>
+        </span>
+      </div>
+    `;
+
+    transactionList.appendChild(item);
+  });
+}
+
+transactionList.addEventListener("click", function (e) {
+  const id = Number(e.target.dataset.id);
+
+  if (e.target.classList.contains("delete-btn")) {
+    transactions = transactions.filter((t) => t.id !== id);
+    localStorage.setItem("transactions", JSON.stringify(transactions));
+    updateBalance();
+    renderTransactions();
+  }
+
+  if (e.target.classList.contains("edit-btn")) {
+    const transaction = transactions.find((t) => t.id === id);
+
+    amountInput.value = transaction.amount;
+    descriptionInput.value = transaction.description;
+    dateInput.value = transaction.date;
+
+    transactionType = transaction.type;
+    updateButtonStyles();
+    updateCategoryOptions(transaction.type);
+
+    selectedCategoryValue = transaction.category;
+    selectedCategory.textContent = transaction.category;
+
+    editMode = true;
+    editId = id;
+
+    addBtn.textContent = "+ Update";
+    addBtn.style.background = "#16a34a";
+    cancelBtn.style.display = "block";
+  }
+});
+
 darkToggle.addEventListener("click", (e) => {
   e.preventDefault();
   document.body.classList.toggle("dark-mode");
@@ -162,24 +258,62 @@ addBtn.addEventListener("click", () => {
     return;
   }
 
-  const transaction = {
-    type: transactionType,
-    amount: Number(amount),
-    category: category,
-    description: description,
-    date: date,
-  };
+  if (editMode) {
+    transactions = transactions.map((t) =>
+      t.id === editId
+        ? {
+            ...t,
+            amount: Number(amount),
+            category,
+            description,
+            date,
+            type: transactionType,
+          }
+        : t,
+    );
 
-  transactions.push(transaction);
+    editMode = false;
+    editId = null;
+
+    addBtn.textContent = "+ Add";
+    addBtn.style.background =
+      transactionType === "income" ? "#31c23d" : "#f53f3f";
+    cancelBtn.style.display = "none";
+  } else {
+    const transaction = {
+      id: Date.now(),
+      type: transactionType,
+      amount: Number(amount),
+      category,
+      description,
+      date,
+    };
+
+    transactions.push(transaction);
+  }
 
   localStorage.setItem("transactions", JSON.stringify(transactions));
 
   updateBalance();
+  renderTransactions();
 
   amountInput.value = "";
-  categoryInput.value = "";
   descriptionInput.value = "";
   dateInput.value = "";
+});
+
+cancelBtn.addEventListener("click", () => {
+  editMode = false;
+  editId = null;
+
+  amountInput.value = "";
+  descriptionInput.value = "";
+  dateInput.value = "";
+
+  addBtn.textContent = "+ Add";
+  addBtn.style.background =
+    transactionType === "income" ? "#31c23d" : "#f53f3f";
+  cancelBtn.style.display = "none";
 });
 
 const savedType = localStorage.getItem("transactionType");
@@ -229,3 +363,4 @@ function updateBalance() {
 }
 
 updateBalance();
+renderTransactions();
