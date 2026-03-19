@@ -29,9 +29,6 @@ const months = [
   "Mar 26",
 ];
 
-const incomeData = [0, 0, 0, 500, 0, 0, 0, 0, 0, 0, 0, 1000];
-const expenseData = [0, 0, 0, 2000, 0, 0, 0, 0, 0, 0, 0, 100];
-
 const chart = new Chart(ctx, {
   type: "bar",
 
@@ -40,16 +37,15 @@ const chart = new Chart(ctx, {
 
     datasets: [
       {
-        label: "income",
-        data: incomeData,
+        label: "Income",
+        data: new Array(12).fill(0),
         backgroundColor: "#10b981",
         borderRadius: 4,
         barThickness: 20,
       },
-
       {
-        label: "expense",
-        data: expenseData,
+        label: "Expense",
+        data: new Array(12).fill(0),
         backgroundColor: "#ef4444",
         borderRadius: 4,
         barThickness: 20,
@@ -112,3 +108,24 @@ const chart = new Chart(ctx, {
     },
   },
 });
+
+function updateChartFromTransactions(transactions) {
+  const incomeData = new Array(12).fill(0);
+  const expenseData = new Array(12).fill(0);
+
+  transactions.forEach((t) => {
+    const date = new Date(t.date);
+    const month = date.getMonth();
+
+    if (t.type === "income") {
+      incomeData[month] += Number(t.amount);
+    } else {
+      expenseData[month] += Number(t.amount);
+    }
+  });
+
+  chart.data.datasets[0].data = incomeData;
+  chart.data.datasets[1].data = expenseData;
+
+  chart.update();
+}

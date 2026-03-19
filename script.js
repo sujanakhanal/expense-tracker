@@ -195,6 +195,7 @@ transactionList.addEventListener("click", function (e) {
     localStorage.setItem("transactions", JSON.stringify(transactions));
     updateBalance();
     renderTransactions();
+    updateChartFromTransactions(transactions);
   }
 
   if (e.target.classList.contains("edit-btn")) {
@@ -296,6 +297,7 @@ addBtn.addEventListener("click", () => {
 
   updateBalance();
   renderTransactions();
+  updateChartFromTransactions(transactions);
 
   amountInput.value = "";
   descriptionInput.value = "";
@@ -364,3 +366,4 @@ function updateBalance() {
 
 updateBalance();
 renderTransactions();
+updateChartFromTransactions(transactions);
