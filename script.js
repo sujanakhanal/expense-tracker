@@ -166,7 +166,8 @@ function renderTransactions() {
         <div class="icon">${icon}</div>
         <div class="info">
           <h4>${t.category}</h4>
-          <p>${t.date}</p>
+          <p class="description-text">${t.description || "No description"}</p>
+          <p class="date-text">${t.date}</p>
         </div>
       </div>
 

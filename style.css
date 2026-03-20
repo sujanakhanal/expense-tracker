@@ -959,3 +959,22 @@ body.dark-mode .transaction-item .icon {
 #cancel-edit-btn:hover {
   background: #d1d5db;
 }
+
+.description-text {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 2px 0;
+}
+
+.date-text {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.dark-mode .description-text {
+  color: #9ca3af;
+}
+
+.dark-mode .date-text {
+  color: #6b7280;
+}
