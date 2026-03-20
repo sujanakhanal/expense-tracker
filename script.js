@@ -364,6 +364,11 @@ function updateBalance() {
     "Rs " + balance.toFixed(2);
 }
 
-updateBalance();
-renderTransactions();
-updateChartFromTransactions(transactions);
+window.addEventListener("load", () => {
+  updateBalance();
+  renderTransactions();
+
+  if (typeof updateChartFromTransactions === "function") {
+    updateChartFromTransactions(transactions);
+  }
+});
