@@ -729,6 +729,11 @@ body.dark-mode .date::after {
   padding: 2.4rem;
 }
 
+body.dark-mode .first-right-pie {
+  background-color: #0f2e43;
+  border: transparent;
+}
+
 .filters {
   width: 80%;
 }
@@ -989,6 +994,9 @@ body.dark-mode .transaction-item .icon {
 .expense-breakdown {
   margin-top: 1rem;
   font-size: 1.3rem;
+}
+body.dark-mode .expense-breakdown{
+  color: #EAE9E9;
 }
 
 .pie-wrapper {
