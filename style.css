@@ -722,6 +722,13 @@ body.dark-mode .date::after {
   padding: 2.4rem;
 }
 
+.first-right-pie {
+  background-color: #ffffff;
+  border: 1px solid rgb(232, 230, 230);
+  border-radius: 1rem;
+  padding: 2.4rem;
+}
+
 .filters {
   width: 80%;
 }
@@ -977,4 +984,16 @@ body.dark-mode .transaction-item .icon {
 
 .dark-mode .date-text {
   color: #6b7280;
+}
+
+.expense-breakdown {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+}
+
+.pie-wrapper {
+  width: 300px;
+  height: 250px;
+  margin: 0 auto;
+  position: relative;
 }

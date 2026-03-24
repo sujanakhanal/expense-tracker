@@ -129,3 +129,60 @@ function updateChartFromTransactions(transactions) {
 
   chart.update();
 }
+
+function updatePieChartFromTransactions(transactions) {
+  const expenseMap = {};
+
+  transactions.forEach((t) => {
+    if (t.type === "expense") {
+      if (!expenseMap[t.category]) {
+        expenseMap[t.category] = 0;
+      }
+      expenseMap[t.category] += Number(t.amount);
+    }
+  });
+
+  const labels = Object.keys(expenseMap);
+  const data = Object.values(expenseMap);
+
+  pieChart.data.labels = labels;
+  pieChart.data.datasets[0].data = data;
+
+  pieChart.update();
+}
+
+const pieCtx = document.getElementById("expensePieChart");
+
+const pieChart = new Chart(pieCtx, {
+  type: "pie",
+  data: {
+    labels: [],
+    datasets: [
+      {
+        data: [],
+        backgroundColor: [
+          "#3b82f6",
+          "#ef4444",
+          "#f59e0b",
+          "#10b981",
+          "#8b5cf6",
+          "#ec4899",
+          "#14b8a6",
+        ],
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "bottom",
+        labels: {
+          color: getLegendColor(),
+          boxWidth: 13,
+          boxHeight: 13,
+        },
+      },
+    },
+  },
+});

@@ -197,6 +197,7 @@ transactionList.addEventListener("click", function (e) {
     updateBalance();
     renderTransactions();
     updateChartFromTransactions(transactions);
+    updatePieChartFromTransactions(transactions);
   }
 
   if (e.target.classList.contains("edit-btn")) {
@@ -299,6 +300,7 @@ addBtn.addEventListener("click", () => {
   updateBalance();
   renderTransactions();
   updateChartFromTransactions(transactions);
+  updatePieChartFromTransactions(transactions);
 
   amountInput.value = "";
   descriptionInput.value = "";
@@ -371,5 +373,6 @@ window.addEventListener("load", () => {
 
   if (typeof updateChartFromTransactions === "function") {
     updateChartFromTransactions(transactions);
+    updatePieChartFromTransactions(transactions);
   }
 });
