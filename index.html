@@ -125,25 +125,39 @@
             </div>
           </section>
           <section class="second-right-section">
-            <div class="filters">
-              <h3>Filters</h3>
-            </div>
-            <div class="category">
-              <p>Category</p>
-              <input type="text" placeholder="All Category" />
-            </div>
-            <div class="dates">
-              <div class="start-date">
-                <p>Start Date</p>
-                <input type="text" placeholder="mm/dd/yy" />
+            <div class="filter-section">
+              <h2>Filter Transactions</h2>
+
+              <div class="filter-grid">
+                <div class="filter-field">
+                  <label>Category</label>
+                  <select id="filter-category">
+                    <option value="">All Categories</option>
+                  </select>
+                </div>
+
+                <div class="filter-field date-wrapper">
+                  <label>Start Date</label>
+                  <input
+                    type="text"
+                    id="filter-start-date"
+                    placeholder="Select date"
+                  />
+                  <i class="fa-solid fa-calendar calendar-icon"></i>
+                </div>
+
+                <div class="filter-field date-wrapper">
+                  <label>End Date</label>
+                  <input
+                    type="text"
+                    id="filter-end-date"
+                    placeholder="Select date"
+                  />
+                  <i class="fa-solid fa-calendar calendar-icon"></i>
+                </div>
+
+                <button id="reset-filter-btn" class="reset-btn">Reset</button>
               </div>
-              <div class="end-date">
-                <p>End Date</p>
-                <input type="text" placeholder="mm/dd/yy" />
-              </div>
-            </div>
-            <div class="reset-btn">
-              <button>Reset Filters</button>
             </div>
           </section>
 

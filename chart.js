@@ -145,12 +145,18 @@ function updatePieChartFromTransactions(transactions) {
   const labels = Object.keys(expenseMap);
   const data = Object.values(expenseMap);
 
+  if (labels.length === 0) {
+    pieChart.data.labels = ["No Expense"];
+    pieChart.data.datasets[0].data = [1];
+    pieChart.update();
+    return;
+  }
+
   pieChart.data.labels = labels;
   pieChart.data.datasets[0].data = data;
 
   pieChart.update();
 }
-
 const pieCtx = document.getElementById("expensePieChart");
 
 const pieChart = new Chart(pieCtx, {

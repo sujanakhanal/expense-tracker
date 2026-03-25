@@ -135,25 +135,26 @@ expenseBtn.addEventListener("click", () => {
 const transactionList = document.getElementById("transaction-list");
 
 let transactions = [];
+let filteredTransactions = [];
 
 const savedData = localStorage.getItem("transactions");
 if (savedData) {
   transactions = JSON.parse(savedData);
 }
 
-function renderTransactions() {
+function renderTransactions(data = transactions) {
   transactionList.innerHTML = "";
 
-  if (transactions.length === 0) {
+  if (data.length === 0) {
     transactionList.innerHTML =
-      "<p class='no-transaction'>No transaction yet. Add one to get started!</p>";
+      "<p class='no-transaction'>No transaction found.</p>";
     return;
   }
 
   transactionList.innerHTML =
-    "<h1 class='recent-transaction' > Recent Transaction </h1>";
+    "<h1 class='recent-transaction'>Recent Transaction</h1>";
 
-  transactions.forEach((t) => {
+  data.forEach((t) => {
     const item = document.createElement("div");
     item.classList.add("transaction-item");
 
@@ -177,7 +178,6 @@ function renderTransactions() {
         </span>
 
         <span class="action-icons">
-
           <i class="fa-solid fa-pen edit-btn" data-id="${t.id}"></i>
           <i class="fa-solid fa-trash delete-btn" data-id="${t.id}"></i>
         </span>
@@ -186,6 +186,37 @@ function renderTransactions() {
 
     transactionList.appendChild(item);
   });
+}
+
+function applyFilters() {
+  const category = document.getElementById("filter-category").value.trim();
+  const startDate = document.getElementById("filter-start-date").value;
+  const endDate = document.getElementById("filter-end-date").value;
+
+  filteredTransactions = transactions.filter((t) => {
+    let matchCategory = true;
+    let matchStart = true;
+    let matchEnd = true;
+
+    if (category && category !== "All Category") {
+      matchCategory = t.category.toLowerCase() === category.toLowerCase();
+    }
+
+    if (startDate) {
+      matchStart = new Date(t.date) >= new Date(startDate);
+    }
+
+    if (endDate) {
+      matchEnd = new Date(t.date) <= new Date(endDate);
+    }
+
+    return matchCategory && matchStart && matchEnd;
+  });
+
+  renderTransactions(filteredTransactions);
+  updateBalance(filteredTransactions);
+  updateChartFromTransactions(filteredTransactions);
+  updatePieChartFromTransactions(filteredTransactions);
 }
 
 transactionList.addEventListener("click", function (e) {
@@ -341,16 +372,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function updateBalance() {
+function updateBalance(data = transactions) {
   let totalIncome = 0;
   let totalExpense = 0;
 
-  transactions.forEach((t) => {
+  data.forEach((t) => {
     if (t.type === "income") {
       totalIncome += Number(t.amount);
-    }
-
-    if (t.type === "expense") {
+    } else {
       totalExpense += Number(t.amount);
     }
   });
@@ -376,3 +405,60 @@ window.addEventListener("load", () => {
     updatePieChartFromTransactions(transactions);
   }
 });
+document
+  .getElementById("filter-category")
+  .addEventListener("input", applyFilters);
+
+document
+  .getElementById("filter-start-date")
+  .addEventListener("change", applyFilters);
+
+document
+  .getElementById("filter-end-date")
+  .addEventListener("change", applyFilters);
+
+document.getElementById("reset-filter-btn").addEventListener("click", () => {
+  document.getElementById("filter-category").value = "";
+  document.getElementById("filter-start-date").value = "";
+  document.getElementById("filter-end-date").value = "";
+
+  renderTransactions(transactions);
+  updateBalance(transactions);
+  updateChartFromTransactions(transactions);
+  updatePieChartFromTransactions(transactions);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const startPicker = flatpickr("#filter-start-date", {
+    dateFormat: "m/d/Y",
+  });
+
+  const endPicker = flatpickr("#filter-end-date", {
+    dateFormat: "m/d/Y",
+  });
+
+  document
+    .querySelectorAll(".calendar-icon")[1]
+    .addEventListener("click", () => startPicker.open());
+
+  document
+    .querySelectorAll(".calendar-icon")[2]
+    .addEventListener("click", () => endPicker.open());
+});
+
+function populateFilterCategories() {
+  const filterCategory = document.getElementById("filter-category");
+
+  const allCategories = [...incomeCategories, ...expenseCategories];
+
+  const uniqueCategories = [...new Set(allCategories)];
+
+  uniqueCategories.forEach((cat) => {
+    const option = document.createElement("option");
+    option.value = cat;
+    option.textContent = cat;
+    filterCategory.appendChild(option);
+  });
+}
+
+populateFilterCategories();
