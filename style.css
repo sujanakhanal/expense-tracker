@@ -1008,16 +1008,19 @@ body.dark-mode .expense-breakdown {
 
 .filter-section {
   background: var(--card-bg);
-  padding: 20px;
   border-radius: 16px;
-  margin-top: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 10px;
 }
 
 .filter-section h2 {
   margin-bottom: 15px;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+body.dark-mode .filter-section h2 {
+  color: #efeeee;
 }
 
 .filter-grid {
@@ -1036,6 +1039,24 @@ body.dark-mode .expense-breakdown {
 .filter-field label {
   font-size: 14px;
   font-weight: 500;
+}
+
+body.dark-mode .filter-field label {
+  color: #e4e2e2;
+}
+
+body.dark-mode .filter-field select {
+  background-color: #273549;
+  border: transparent;
+  color: rgb(211, 211, 211);
+}
+body.dark-mode .filter-field input {
+  background-color: #273549;
+  border: transparent;
+}
+
+body.dark-mode .date-wrapper input {
+  color: rgb(211, 211, 211);
 }
 
 .filter-field input,
