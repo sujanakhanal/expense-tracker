@@ -11,6 +11,7 @@ A simple and responsive Expense Tracker web application that helps users manage 
 - Monthly spending chart using Chart.js
 - Transaction history list
 - Responsive and clean UI
+- Expense breakdown using piechart
 
 ## Technologies Used
 
@@ -22,8 +23,6 @@ A simple and responsive Expense Tracker web application that helps users manage 
 
 ## How It Works
 
-Users can add a transaction by entering the amount, category, description, and date. The transaction is saved in the browser using LocalStorage so that data persists even after refreshing the page. The application also displays a chart to visualize spending trends and allows user to edit and delete transation whenever they want.
+Users can add a transaction by entering the amount, category, description, and date. The transaction is saved in the browser using LocalStorage so that data persists even after refreshing the page. The application also displays a chart to visualize spending trends and allows user to edit and delete transation whenever they want. Also shows expense breakdown by categories and transaction history.
 
-## Future Improvements
 
-- Responsive layout
